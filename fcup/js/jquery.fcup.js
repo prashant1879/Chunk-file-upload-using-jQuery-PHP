@@ -1,8 +1,5 @@
 /*
- * 文件分段上传jquery插件
- * author:lovefc
- * time:2018/01/05 23:05
- * uptime:2018/05/02 0:36
+
  */
 (function (jQuery) {
     jQuery.fn.fcupInitialize = function () {
@@ -12,10 +9,10 @@
             var button = jQuery(this),
                 fcup = 0;
             if (!jQuery.uploading) {
-                jQuery.uploading = '上传中...';
+                jQuery.uploading = 'uploading...';
             }
             if (!jQuery.upfinished) {
-                jQuery.upfinished = '上传完成';
+                jQuery.upfinished = 'uploaded completed';
             }
             var options = jQuery.extend({
                     loading: jQuery.uploading,
@@ -132,7 +129,7 @@ var big_upload = {
     fcup: function (config) {
             jQuery.extend(config);
             if (!jQuery.upstr) {
-                jQuery.upstr = '上传文件';
+                jQuery.upstr = 'upload files';
             }
             if (!jQuery.upid) {
                 jQuery.upid = 'ad47494fc02c388e';
@@ -197,7 +194,7 @@ var big_upload = {
 
             if (jQuery.upmaxsize) {
                 if (!jQuery.errmaxup) {
-                    jQuery.errmaxup = '上传文件过大';
+                    jQuery.errmaxup = 'Upload file is too large';
                 }
                 if (!jQuery.fcup_limitFileSize(file, jQuery.upmaxsize + 'MB')) {
                     jQuery.upstr = jQuery.errmaxup;
@@ -213,7 +210,7 @@ var big_upload = {
             shardCount = Math.ceil(size / shardSize);
             if (jQuery.uptype) {
                 if (!jQuery.errtype) {
-                    jQuery.errtype = '文件类型不对';
+                    jQuery.errtype = 'The file type is wrong';
                 }
                 uptype = jQuery.uptype.split(",");
                 if (jQuery.inArray(suffix, uptype) == -1) {
@@ -235,7 +232,7 @@ var big_upload = {
 
                 re[i]["file_name"] = name;
 
-                re[i]["file_size"] = size; //文件大小
+                re[i]["file_size"] = size; //File size
                 re[i]["file_total"] = shardCount;
 
                 re[i]["file_index"] = i + 1;
