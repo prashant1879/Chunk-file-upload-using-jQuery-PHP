@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <meta charset="utf-8" /> 
+        <title>Jquery file segment upload plugin-fcup</title> 
+        <!-- Introducing css --> 
+        <link href="./fcup/css/style.css" rel="stylesheet" /> 
+    </head> 
+    <body> 
+        <div class="fcup"></div>  
+        <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script> 
+        <!--  Introducing js  --> 
+        <script src="./fcup/js/jquery.fcup.js"></script> 
+        <script>
+            $.fcup({
+                updom: '.fcup', //Upload control location dom		
+                //upid: 'upid',//Uploaded file form id with default
+                shardsize: '2', //Slice size, (single upload maximum) unit M, default 2M
+                upmaxsize: '1024', // Upload file size, unit M, no setting is not limited
+                upstr: 'UPLOAD FILE', //Button text
+                uploading: 'uploading...', //Prompt text in upload
+                upfinished: 'uploaded completed', //Prompt text after uploading
+                upurl: './php/file.php', //File upload interface node interface: http://127.0.0.1:8888/upload
+                //uptype: 'mp4',//Upload type detection, split by number
+                errmaxup: 'Upload file is too large', //Check if the file exceeds the set upload size
+                errtype: 'Please upload mp4 file', //Type text is not supported
+
+                //接口返回结果回调
+                upcallback: function (result) {
+                    console.log(result);
+                    /*
+                     if (result !== 'success') {
+                     $.fcupStop('An error occurred');//Terminate the run and display the content on the button
+                     }	
+                     */
+
+                }
+            });
+        </script>  
+    </body>
+</html>
